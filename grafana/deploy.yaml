@@ -12,9 +12,16 @@ spec:
       labels:
         app: grafana
     spec:
+      initContainers:
+      - name: fix-perms
+        image: busybox
+        command: ["sh", "-c", "chown -R 472:472 /var/lib/grafana"]
+        volumeMounts:
+        - name: grafana-storage
+          mountPath: /var/lib/grafana
       containers:
       - name: grafana
-        image: grafana/grafana:10.4.2
+        image: grafana/grafana:9.3.6
         ports:
         - containerPort: 3000
         volumeMounts:

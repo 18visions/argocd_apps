@@ -10,5 +10,5 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs
   nfs:
-    path: "/"  # Change this to your NFS server path
+    path: /srv/nfs/kubedata
     server: 10.7.0.71  # Change this to your NFS server address
