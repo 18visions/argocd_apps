@@ -9,6 +9,6 @@ spec:
     targetPort: 9090
     protocol: TCP
     name: web
-    nodePort: 9000
+    nodePort: 32001
   selector:
     app: prometheus
