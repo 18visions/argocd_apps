@@ -5,9 +5,9 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 3000
-    targetPort: 3000
-    protocol: TCP
-    name: web
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+      nodePort: 32000  # Optional: specify a node port or let Kubernetes assign one
   selector:
     app: grafana
