@@ -6,12 +6,10 @@ metadata:
 spec:
   service_type: nodeport
   ingress_type: none
-  hostname: awx.homelab.local
   persistence:
     enabled: true
     storage_class: nfs
     storage_size: 5Gi
     access_mode: ReadWriteMany
     storage_request: 5Gi
-  loadbalancer_port: 80
-  loadbalancer_protocol: http
+    nodeport_port: 80
