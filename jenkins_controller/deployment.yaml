@@ -21,14 +21,8 @@ spec:
           runAsUser: 1000
           runAsGroup: 1000
         ports:
-          - port: 8080  # for web UI
-            targetPort: 8080
-            protocol: TCP
-            name: http
-          - port: 50000  # for JNLP agents
-            targetPort: 50000
-            protocol: TCP
-            name: jnlp
+        - containerPort: 8080
+        - containerPort: 50000  # Used for Jenkins agents
         volumeMounts:
         - name: jenkins-storage
           mountPath: /var/jenkins_home
