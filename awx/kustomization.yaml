@@ -8,7 +8,7 @@ resources:
   - awx-cr.yaml
   - awx-service.yaml
 
-namespace: awx
+namespace: awxv1
 
 images:
   - name: quay.io/ansible/awx-operator
