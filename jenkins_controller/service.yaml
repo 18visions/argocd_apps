@@ -11,8 +11,8 @@ spec:
     nodePort: 32050
     protocol: TCP
   - name: agents
-    port: 50000
-    targetPort: 50000
+    port: 8090
+    targetPort: 8090
     nodePort: 32051
     protocol: TCP
   selector:

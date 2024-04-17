@@ -29,7 +29,7 @@ spec:
           runAsGroup: 1000
         ports:
         - containerPort: 8080
-        - containerPort: 50000  # Used for Jenkins agents
+        - containerPort: 8090  # Used for Jenkins agents
         volumeMounts:
         - name: jenkins-storage
           mountPath: /var/jenkins_home
