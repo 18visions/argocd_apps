@@ -6,7 +6,6 @@ resources:
   - pv.yaml
   - pvc.yaml
   - awx-cr.yaml
-  - awx-service.yaml
 
 namespace: awxv1
 
