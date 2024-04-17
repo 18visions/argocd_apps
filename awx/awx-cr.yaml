@@ -13,3 +13,4 @@ spec:
     access_mode: ReadWriteMany
     storage_request: 5Gi
     nodeport_port: 80
+  imagepullpolicy: Always
