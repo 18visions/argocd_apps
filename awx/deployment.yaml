@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: awx-web
-        image: ansible/awx:24.2.0
+        image: quay.io/ansible/awx:24.2.0
         ports:
         - containerPort: 8052
         env:
