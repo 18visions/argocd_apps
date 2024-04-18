@@ -8,8 +8,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - port: 3005
-      targetPort: 3005
+    - port: 3000
+      targetPort: 3000
       protocol: TCP
       nodePort: 31200
       name: http
