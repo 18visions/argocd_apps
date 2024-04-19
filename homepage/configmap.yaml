@@ -47,7 +47,7 @@ data:
         - Home Assistant:
             href: http://homeassistant.local:8123
             description: Home Assistant
-            icon: homeassistant
+            icon: home-assistant
 
     - My Third Group:
         - Grafana:
