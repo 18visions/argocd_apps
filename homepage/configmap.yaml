@@ -25,7 +25,7 @@ data:
         - Pi-hole:
             href: http://pihole.homelab.local
             description: Pi-hole
-            icon: pihole
+            icon: pi-hole
         - ArgoCD:
             href: http://argocd.homelab.local
             description: ArgoCD
