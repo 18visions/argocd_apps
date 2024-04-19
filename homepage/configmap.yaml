@@ -30,6 +30,10 @@ data:
             href: http://argocd.homelab.local
             description: ArgoCD
             icon: argocd
+        -proxmox:
+            href: https://proxmox.homelab.local
+            description: Proxmox
+            icon: proxmox
             
     - My Second Group:
         - Jenkins:
