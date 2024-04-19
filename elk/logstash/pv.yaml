@@ -6,7 +6,7 @@ spec:
   capacity:
     storage: 3Gi
   accessModes:
-    - ReadWritemany
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /srv/nfs/kubedata/logstash
