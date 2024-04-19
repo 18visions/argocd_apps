@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+spec:
+  selector:
+    matchLabels:
+      component: kibana
+  template:
+    metadata:
+      labels:
+        component: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:7.10.0
+        resources:
+          limits:
+            memory: 1Gi
+        ports:
+        - containerPort: 5601
+        volumeMounts:
+        - name: kibana-storage
+          mountPath: /usr/share/kibana/data
+      volumes:
+      - name: kibana-storage
+        persistentVolumeClaim:
+          claimName: kibana-pvc

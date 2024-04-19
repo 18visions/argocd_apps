@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: logstash-service
+spec:
+  type: NodePort
+  ports:
+  - port: 5044
+    nodePort: 30544
+    protocol: TCP
+  selector:
+    component: logstash

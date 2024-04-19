@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: logstash
+spec:
+  selector:
+    matchLabels:
+      component: logstash
+  template:
+    metadata:
+      labels:
+        component: logstash
+    spec:
+      containers:
+      - name: logstash
+        image: docker.elastic.co/logstash/logstash:7.10.0
+        resources:
+          limits:
+            memory: 1.5Gi
+        ports:
+        - containerPort: 5044
+        volumeMounts:
+        - name: logstash-storage
+          mountPath: /usr/share/logstash/data
+      volumes:
+      - name: logstash-storage
+        persistentVolumeClaim:
+          claimName: logstash-pvc
