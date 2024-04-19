@@ -30,7 +30,7 @@ data:
             href: http://argocd.homelab.local
             description: ArgoCD
             icon: argocd
-        -proxmox:
+        - Proxmox:
             href: https://proxmox.homelab.local
             description: Proxmox
             icon: proxmox
@@ -44,6 +44,10 @@ data:
             href: http://rabbitmq.homelab.local
             description: RabbitMQ
             icon: rabbitmq
+        - Home Assistant:
+            href: http://homeassistant.local:8123
+            description: Home Assistant
+            icon: homeassistant
 
     - My Third Group:
         - Grafana:
