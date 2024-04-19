@@ -19,22 +19,28 @@ data:
     - Developer:
         - Github:
             - abbr: GH
-              href: https://github.com/
+              href: https://github.com/18visions
   services.yaml: |
     - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
-
+        - Pi-hole:
+            href: http://pihole.homelab.local
+            description: Pi-hole
+            
     - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
+        - Jenkins:
+            href: http://jenkins.homelab.local
+            description: Jenkins CI/CD
+        - RabbitMQ:
+            href: http://rabbitmq.homelab.local
+            description: RabbitMQ
 
     - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
+        - Grafana:
+            href: http://grafana.homelab.local
+            description: Grafana
+        - Prometheus:
+            href: http://prometheus.homelab.local
+            description: Prometheus
   widgets.yaml: |
     - kubernetes:
         cluster:
