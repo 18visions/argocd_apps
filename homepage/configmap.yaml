@@ -25,22 +25,31 @@ data:
         - Pi-hole:
             href: http://pihole.homelab.local
             description: Pi-hole
+            icon: pihole
+        - ArgoCD:
+            href: http://argocd.homelab.local
+            description: ArgoCD
+            icon: argocd
             
     - My Second Group:
         - Jenkins:
             href: http://jenkins.homelab.local
             description: Jenkins CI/CD
+            icon: jenkins
         - RabbitMQ:
             href: http://rabbitmq.homelab.local
             description: RabbitMQ
+            icon: rabbitmq
 
     - My Third Group:
         - Grafana:
             href: http://grafana.homelab.local
             description: Grafana
+            icon: grafana
         - Prometheus:
             href: http://prometheus.homelab.local
             description: Prometheus
+            icon: prometheus
   widgets.yaml: |
     - kubernetes:
         cluster:
