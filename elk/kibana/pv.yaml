@@ -8,6 +8,7 @@ spec:
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs
   nfs:
     path: /srv/nfs/kubedata/kibana
     server: 10.7.0.71
