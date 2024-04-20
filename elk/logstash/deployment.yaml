@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: logstash
-        image: docker.elastic.co/logstash/logstash:7.10.0
+        image: docker.elastic.co/logstash/logstash:8.13.2-arm64
         resources:
           limits:
             memory: 1.5Gi
