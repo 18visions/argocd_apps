@@ -1,7 +1,8 @@
 apiVersion: apps/v1
-kind: namespace
+kind: Namespace
 metadata:
   name: homepage
+  namespace: homepage
 ---
 
 apiVersion: apps/v1
