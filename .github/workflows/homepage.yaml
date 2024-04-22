@@ -18,10 +18,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Ensure Namespace Exists
-        uses: actions-hub/kubectl@master
-        with:
-          args: create namespace homepage --dry-run=client -o yaml | kubectl apply -f -
+      - name: Create Namespace
+        run: |
+          kubectl create namespace homepage || true
 
       - name: Deploy App(Deployment)
         uses: actions-hub/kubectl@master
@@ -62,7 +61,7 @@ jobs:
         uses: actions-hub/kubectl@master
         with:
           args: apply -f homepage/serviceaccount.yaml --validate=false
-          
+
       - name: Deploy App(ClusterRole)
         uses: actions-hub/kubectl@master
         with:
