@@ -1,4 +1,10 @@
 apiVersion: apps/v1
+kind: namespace
+metadata:
+  name: homepage
+---
+
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: homepage
