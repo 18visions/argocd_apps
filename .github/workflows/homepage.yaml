@@ -1,0 +1,56 @@
+name: Kubernetes Deployment
+
+on:
+  push:
+    paths:
+      - "homepage/**"
+    branches:
+      - master
+
+env:
+  KUBECONFIG: ${{ secrets.KUBECONFIG }}
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Deploy App(Deployment)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/deployment.yaml
+      - name: Deploy App(Service)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/service.yaml
+      - name: Deploy App(IngressRoute)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/ingressroute.yaml
+      - name: Deploy App(Configmap)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/configmap.yaml
+      - name: Deploy App(PV)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/pv.yaml
+      - name: Deploy App(PVC)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/pvc.yaml
+      - name: Deploy App(Secret)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/secret.yaml
+      - name: Deploy App(ServiceAccount)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/serviceaccount.yaml
+      - name: Deploy App(ClusterRole)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f homepage/clusterrole.yaml
