@@ -10,5 +10,5 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs
   nfs:
-    path: /srv/nfs/kubedata/homepage
-    server: 10.7.0.71
+    path: /exports/homepage
+    server: 10.7.0.69

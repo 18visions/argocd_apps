@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - "homepage/**"
+    branches:
+      - master
 
 env:
   KUBECONFIG: ${{ secrets.KUBECONFIG }}
