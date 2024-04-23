@@ -25,7 +25,7 @@ jobs:
       - name: Deploy App(Deployment)
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f prometheus/deploy.yaml --validate=false
+          args: apply -f prometheus/deployment.yaml --validate=false
 
       - name: Deploy App(Service)
         uses: actions-hub/kubectl@master
