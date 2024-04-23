@@ -11,5 +11,5 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nfs
   nfs:
-    path: /srv/nfs/kubedata/grafana
+    path: /exports/grafana
     server: 10.7.0.69
