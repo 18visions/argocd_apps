@@ -2,6 +2,7 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: nfs-pv-grafana
+  namespace: grafana
 spec:
   capacity:
     storage: 2Gi
@@ -11,4 +12,4 @@ spec:
   storageClassName: nfs
   nfs:
     path: /srv/nfs/kubedata/grafana
-    server: 10.7.0.71
+    server: 10.7.0.69
