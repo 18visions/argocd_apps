@@ -41,3 +41,8 @@ jobs:
         uses: actions-hub/kubectl@master
         with:
           args: apply -f prometheus/pvc.yaml --validate=false
+
+      - name: Deploy App(ConfigMap)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f prometheus/configmap.yaml --validate=false
