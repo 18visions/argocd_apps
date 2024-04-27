@@ -25,10 +25,28 @@ spec:
         image: grafana/grafana:9.3.6
         ports:
         - containerPort: 3000
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+          requests:
+            cpu: "500m"
+            memory: "2Gi"
         volumeMounts:
         - name: grafana-storage
           mountPath: /var/lib/grafana
+        - name: grafana-config
+          mountPath: /etc/grafana/provisioning/datasources
+        - name: grafana-dashboards
+          mountPath: /var/lib/grafana/dashboards
       volumes:
       - name: grafana-storage
         persistentVolumeClaim:
           claimName: grafana-pvc
+      - name: grafana-config
+        configMap:
+          name: grafana-datasources
+      # Uncomment the following lines if you have created a ConfigMap for Grafana dashboards
+      #- name: grafana-dashboards
+      #  configMap:
+      #    name: grafana-dashboards

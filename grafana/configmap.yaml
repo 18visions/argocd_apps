@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasources
+  namespace: grafana
+data:
+  prometheus-datasource.yaml: |
+    apiVersion: 1
+    datasources:
+    - name: Prometheus
+      type: prometheus
+      access: proxy
+      url: http://prometheus.homelab.local  # Update this URL based on your Prometheus service name and port
+      isDefault: true
+      editable: true
