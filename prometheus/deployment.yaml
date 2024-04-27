@@ -18,10 +18,27 @@ spec:
         image: prom/prometheus:v2.51.2
         ports:
         - containerPort: 9090
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+          requests:
+            cpu: "500m"
+            memory: "2Gi"
         volumeMounts:
+        - name: config-volume
+          mountPath: /etc/prometheus
         - name: prometheus-storage
           mountPath: /prometheus
+        args:
+          - "--config.file=/etc/prometheus/prometheus.yml"
+          - "--storage.tsdb.path=/prometheus/"
+          - "--storage.tsdb.retention.time=15d"
+          - "--storage.tsdb.retention.size=20GB"
       volumes:
       - name: prometheus-storage
         persistentVolumeClaim:
           claimName: prometheus-pvc
+      - name: config-volume
+        configMap:
+          name: prometheus-config
