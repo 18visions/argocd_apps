@@ -13,5 +13,4 @@ data:
         metrics_path: /metrics
         static_configs:
           - targets:
-            - http://10.7.0.79:9100/metrics
-
+            - http://10.7.0.79:9100
