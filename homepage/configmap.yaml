@@ -31,7 +31,7 @@ data:
             description: ArgoCD
             icon: argocd
         - Proxmox:
-            href: https://proxmox.homelab.local
+            href: http://proxmox.homelab.local
             description: Proxmox
             icon: proxmox
             
