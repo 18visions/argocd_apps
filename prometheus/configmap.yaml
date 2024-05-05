@@ -21,6 +21,7 @@ data:
               - "10.7.0.78:9100"
     
       - job_name: 'blackbox'
+        metrics_path: /probe
         params:
           module: [http_2xx]  # Look at the Blackbox Exporter documentation to see other modules
         static_configs:
