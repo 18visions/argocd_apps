@@ -32,7 +32,7 @@ jobs:
         with:
           args: apply -f blackbox-exporter/service.yaml --validate=false
 
-      - name: Deploy App(PV)
+      - name: Deploy App(Storage)
         uses: actions-hub/kubectl@master
         with:
           args: apply -f blackbox-exporter/storage.yaml --validate=false
