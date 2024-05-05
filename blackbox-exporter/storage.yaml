@@ -8,6 +8,7 @@ spec:
     storage: 1Gi
   accessModes:
     - ReadWriteMany
+  storageClassName: nfs
   nfs:
     path: /exports/blackbox-exporter
     server: 10.7.0.69
