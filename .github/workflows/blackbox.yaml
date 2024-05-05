@@ -1,0 +1,38 @@
+name: Kubernetes Deployment
+
+on:
+  push:
+    paths:
+      - "blackbox-exporter/**"
+    branches:
+      - master
+
+env:
+  KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Create Namespace
+        run: |
+          kubectl create namespace blackbox-exporter || true
+
+      - name: Deploy App(Deployment)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f blackbox-exporter/deployment.yaml --validate=false
+
+      - name: Deploy App(Service)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f blackbox-exporter/service.yaml --validate=false
+
+      - name: Deploy App(PV)
+        uses: actions-hub/kubectl@master
+        with:
+          args: apply -f blackbox-exporter/storage.yaml --validate=false
