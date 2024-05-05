@@ -19,3 +19,24 @@ data:
               - "10.7.0.69:9100"
               - "10.7.0.74:9100"
               - "10.7.0.78:9100"
+    
+      - job_name: 'blackbox'
+        params:
+          module: [http_2xx]  # Look at the Blackbox Exporter documentation to see other modules
+        static_configs:
+          - targets:
+            - http://jenkins.homelab.local
+            - http://grafana.homelab.local
+            - http://prometheus.homelab.local
+            - http://pihole.homelab.local/admin
+            - http://homepage.homelab.local
+            - http://kibana.homelab.local
+            - http://portainer.homelab.local
+            - http://traefik.homelab.local
+        relabel_configs:
+          - source_labels: [__address__]
+            target_label: __param_target
+          - source_labels: [__param_target]
+            target_label: instance
+          - target_label: __address__
+            replacement: blackbox-exporter:9115  # The service name and port of the Blackbox Exporter
