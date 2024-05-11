@@ -15,6 +15,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      
+      - name: Ensure kube directory permissions
+        run: |
+          sudo chown -R $(whoami) $HOME/.kube
+          sudo chmod -R 700 $HOME/.kube
 
       - name: Setup kubeconfig
         env:
