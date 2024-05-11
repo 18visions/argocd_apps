@@ -20,7 +20,7 @@ jobs:
 
       - name: Install traefik CRD
         run: |
-          kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.4/examples/k8s/traefik.yaml
+          kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v2.3/examples/k8s/crd.yaml
 
       - name: Create Namespace
         run: |
