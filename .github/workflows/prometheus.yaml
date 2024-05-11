@@ -15,44 +15,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      
-      - name: Ensure kube directory permissions
-        run: |
-          sudo chown -R $(whoami) $HOME/.kube
-          sudo chmod -R 700 $HOME/.kube
-
-      - name: Kubectl check
-        uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
-        with:
-          args: get nodes
 
       - name: Create Namespace
         run: |
           kubectl create namespace prometheus || true
 
       - name: Deploy App(Deployment)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f prometheus/deployment.yaml --validate=false --insecure-skip-tls-verify
+        run: |
+          kubectl apply -f prometheus/deployment.yaml
 
       - name: Deploy App(Service)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f prometheus/service.yaml --validate=false --insecure-skip-tls-verify
+        run: |
+          kubectl apply -f prometheus/service.yaml
 
       - name: Deploy App(PV)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f prometheus/pv.yaml --validate=false --insecure-skip-tls-verify
+        run: |
+          kubectl apply -f prometheus/pv.yaml
 
       - name: Deploy App(PVC)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f prometheus/pvc.yaml --validate=false --insecure-skip-tls-verify
+        run: |
+          kubectl apply -f prometheus/pvc.yaml
 
       - name: Deploy App(ConfigMap)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f prometheus/configmap.yaml --validate=false --insecure-skip-tls-verify
+        run: |
+          kubectl apply -f prometheus/configmap.yaml
