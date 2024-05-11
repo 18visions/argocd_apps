@@ -26,7 +26,7 @@ jobs:
           KUBECONFIG_CONTENT: ${{ secrets.KUBE_CONFIG }}
         run: |
           mkdir -p $HOME/.kube
-          echo "$KUBECONFIG_CONTENT" | $HOME/.kube/config
+          echo "$KUBECONFIG_CONTENT" | base64 --decode > $HOME/.kube/config
           kubectl config view
 
       - name: Create Namespace
