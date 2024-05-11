@@ -23,46 +23,37 @@ jobs:
           kubectl create namespace homepage || true
 
       - name: Deploy App(Deployment)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/deployment.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/deployment.yaml
 
       - name: Deploy App(Service)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/service.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/service.yaml
 
       - name: Deploy App(IngressRoute)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/ingressroute.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/ingressroute.yaml
 
       - name: Deploy App(Configmap)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/configmap.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/configmap.yaml
 
       - name: Deploy App(PV)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/pv.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/pv.yaml
 
       - name: Deploy App(PVC)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/pvc.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/pvc.yaml
 
       - name: Deploy App(Secret)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/secret.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/secret.yaml
 
       - name: Deploy App(ServiceAccount)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/serviceaccount.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/serviceaccount.yaml
 
       - name: Deploy App(ClusterRole)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f homepage/clusterrole.yaml --validate=false
+        run: |
+          kubectl apply -f homepage/clusterrole.yaml
