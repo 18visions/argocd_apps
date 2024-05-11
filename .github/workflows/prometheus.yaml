@@ -21,12 +21,8 @@ jobs:
           sudo chown -R $(whoami) $HOME/.kube
           sudo chmod -R 700 $HOME/.kube
 
-      - name: Setup kubeconfig
-        env:
-          KUBECONFIG_CONTENT: ${{ secrets.KUBE_CONFIG }}
+      - name: Kubectl check
         run: |
-          mkdir -p $HOME/.kube
-          echo "$KUBECONFIG_CONTENT" | base64 --decode > $HOME/.kube/config
           kubectl config view
 
       - name: Create Namespace
