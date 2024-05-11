@@ -41,4 +41,3 @@ data:
             target_label: instance
           - target_label: __address__
             replacement: blackbox-exporter.blackbox-exporter.svc.cluster.local:9115
-          
