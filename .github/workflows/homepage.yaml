@@ -18,6 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Install traefik CRD
+        run: |
+          kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v2.4/examples/k8s/traefik.yaml
+
       - name: Create Namespace
         run: |
           kubectl create namespace homepage || true
