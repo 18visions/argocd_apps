@@ -24,7 +24,7 @@ jobs:
       - name: Kubectl check
         uses: actions-hub/kubectl@master
         with:
-          args: get nodes
+          args: get nodes --insecure-skip-tls-verify
 
       - name: Create Namespace
         run: |
