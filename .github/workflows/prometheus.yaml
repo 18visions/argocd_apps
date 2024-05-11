@@ -25,24 +25,24 @@ jobs:
       - name: Deploy App(Deployment)
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f prometheus/deployment.yaml --validate=false
+          args: apply -f prometheus/deployment.yaml --validate=false --insecure-skip-tls-verify
 
       - name: Deploy App(Service)
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f prometheus/service.yaml --validate=false
+          args: apply -f prometheus/service.yaml --validate=false --insecure-skip-tls-verify
 
       - name: Deploy App(PV)
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f prometheus/pv.yaml --validate=false
+          args: apply -f prometheus/pv.yaml --validate=false --insecure-skip-tls-verify
 
       - name: Deploy App(PVC)
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f prometheus/pvc.yaml --validate=false
+          args: apply -f prometheus/pvc.yaml --validate=false --insecure-skip-tls-verify
 
       - name: Deploy App(ConfigMap)
         uses: actions-hub/kubectl@master
         with:
-          args: apply -f prometheus/configmap.yaml --validate=false
+          args: apply -f prometheus/configmap.yaml --validate=false --insecure-skip-tls-verify
