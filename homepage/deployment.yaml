@@ -57,7 +57,6 @@ spec:
               subPath: widgets.yaml
             - mountPath: /app/config/logs
               name: logs
-          # resource limits
           resources:
             requests:
               memory: "64Mi"
@@ -69,7 +68,5 @@ spec:
         - name: homepage-config
           configMap:
             name: homepage
-          persistentVolumeClaim:
-            claimName: homepage-pvc
         - name: logs
           emptyDir: {}
