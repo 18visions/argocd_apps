@@ -22,8 +22,9 @@ jobs:
           sudo chmod -R 700 $HOME/.kube
 
       - name: Kubectl check
-        run: |
-          kubectl config view
+        uses: actions-hub/kubectl@master
+        with:
+          args: get nodes
 
       - name: Create Namespace
         run: |
