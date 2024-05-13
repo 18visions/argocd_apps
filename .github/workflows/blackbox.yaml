@@ -23,16 +23,13 @@ jobs:
           kubectl create namespace blackbox-exporter || true
 
       - name: Deploy App(Deployment)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f blackbox-exporter/deployment.yaml --validate=false
+        run: |
+          kubectl apply -f blackbox-exporter/deployment.yaml --validate=false
 
       - name: Deploy App(Service)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f blackbox-exporter/service.yaml --validate=false
+        run: |
+          kubectl apply -f blackbox-exporter/service.yaml --validate=false
 
       - name: Deploy App(Storage)
-        uses: actions-hub/kubectl@master
-        with:
-          args: apply -f blackbox-exporter/storage.yaml --validate=false
+        run: |
+          kubectl apply -f blackbox-exporter/storage.yaml --validate=false
