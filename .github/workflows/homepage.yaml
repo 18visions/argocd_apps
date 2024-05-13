@@ -35,9 +35,9 @@ jobs:
         run: |
           kubectl apply -f homepage/service.yaml
 
-      - name: Deploy App(IngressRoute)
-        run: |
-          kubectl apply -f homepage/ingressroute.yaml
+      #- name: Deploy App(IngressRoute)
+      #  run: |
+      #    kubectl apply -f homepage/ingressroute.yaml
 
       - name: Deploy App(Configmap)
         run: |
