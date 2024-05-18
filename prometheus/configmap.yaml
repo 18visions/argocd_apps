@@ -34,6 +34,8 @@ data:
             - http://kibana.homelab.local
             - http://portainer.homelab.local
             - http://traefik.homelab.local
+            - http://traefik.homelab.local/dashboard
+            - http://homarr.homelab.local
         relabel_configs:
           - source_labels: [__address__]
             target_label: __param_target
