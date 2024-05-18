@@ -38,3 +38,7 @@ jobs:
       - name: Deploy App(ConfigMap)
         run: |
           kubectl apply -f grafana/configmap.yaml
+      
+      - name: Deploy App(Ingress)
+        run: |
+          kubectl apply -f grafana/ingress.yaml
