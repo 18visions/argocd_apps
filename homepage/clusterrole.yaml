@@ -25,6 +25,9 @@ rules:
       - list
   - apiGroups:
       - traefik.containo.us
+      - traefik.containo.us/v1alpha1
+      - ingressroutes.traefik.containo.us
+      - ingressroutes.traefik.io
     resources:
       - ingressroutes
     verbs:
