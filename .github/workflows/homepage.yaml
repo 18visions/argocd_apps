@@ -18,11 +18,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Install traefik CRD
-        run: |
-          kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.0/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
-          kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.0/docs/content/reference/dynamic-configuration/kubernetes-crd-rbac.yml
-
       - name: Create Namespace
         run: |
           kubectl create namespace homepage || true
@@ -35,9 +30,9 @@ jobs:
         run: |
           kubectl apply -f homepage/service.yaml
 
-      #- name: Deploy App(IngressRoute)
-      #  run: |
-      #    kubectl apply -f homepage/ingressroute.yaml
+      - name: Deploy App(IngressRoute)
+        run: |
+          kubectl apply -f homepage/ingressroute.yaml
 
       - name: Deploy App(Configmap)
         run: |
