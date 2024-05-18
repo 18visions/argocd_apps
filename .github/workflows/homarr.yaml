@@ -1,0 +1,39 @@
+name: Homarr Deployment
+
+on:
+  push:
+    paths:
+      - "homarr/**"
+    branches:
+      - master
+
+env:
+  KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Create Namespace
+        run: |
+            kubectl apply -f homarr/namespace.yaml
+      
+      - name: Deploy App(Deployment)
+        run: |
+            kubectl apply -f homarr/deployment.yaml
+      
+      - name: Deploy App(Service)
+        run: |
+            kubectl apply -f homarr/service.yaml
+        
+      - name: Deploy App(Ingress)
+        run: |
+            kubectl apply -f homarr/ingress.yaml
+    
+      - name: Deploy Storage(PV/PVC)
+        run: |
+            kubectl apply -f homarr/storage.yaml
