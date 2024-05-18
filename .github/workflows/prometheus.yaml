@@ -39,3 +39,7 @@ jobs:
       - name: Deploy App(ConfigMap)
         run: |
           kubectl apply -f prometheus/configmap.yaml
+
+      - name: Deploy App(Ingress)
+        run: |
+          kubectl apply -f prometheus/ingress.yaml
