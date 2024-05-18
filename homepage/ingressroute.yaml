@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: homepage-ingress
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
   - host: "homepage.homelab.local"
