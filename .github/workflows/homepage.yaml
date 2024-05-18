@@ -1,4 +1,4 @@
-name: Kubernetes Deployment
+name: Homepage Deployment
 
 on:
   push:

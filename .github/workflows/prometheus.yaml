@@ -1,4 +1,4 @@
-name: Kubernetes Deployment
+name: Prometheus Deployment
 
 on:
   push:
