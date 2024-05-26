@@ -23,12 +23,16 @@ spec:
         - name: homarr-configs
           mountPath: /app/data/configs
         - name: homarr-icons
-          mountPath: /app/data/icons
+          mountPath: /app/public/icons
         - name: homarr-data
           mountPath: /data
       volumes:
       - name: homarr-data
+        persistentVolumeClaim:
+          claimName: homarr-data-pvc
       - name: homarr-configs
+        persistentVolumeClaim:
+          claimName: homarr-config-pvc
       - name: homarr-icons
         persistentVolumeClaim:
-          claimName: homarr-pvc
+          claimName: homarr-icons-pvc
