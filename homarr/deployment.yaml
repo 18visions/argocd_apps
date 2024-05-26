@@ -29,10 +29,10 @@ spec:
       volumes:
       - name: homarr-data
         persistentVolumeClaim:
-          claimName: homarr-pvc
+          claimName: homarr-data-pvc
       - name: homarr-configs
         persistentVolumeClaim:
-          claimName: homarr-pvc
+          claimName: homarr-config-pvc
       - name: homarr-icons
         persistentVolumeClaim:
-          claimName: homarr-pvc
+          claimName: homarr-icons-pvc

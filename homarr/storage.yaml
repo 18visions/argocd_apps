@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: homarr-pv
+  name: homarr-config-pv
   namespace: homarr
 spec:
   capacity:
@@ -17,7 +17,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: homarr-pvc
+  name: homarr-config-pvc
   namespace: homarr
 spec:
   accessModes:
@@ -25,5 +25,67 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  volumeName: homarr-pv
+  volumeName: homarr-config-pv
+  storageClassName: nfs
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homarr-data-pv
+  namespace: homarr
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /exports/homarr
+    server: 10.7.0.69
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homarr-data-pvc
+  namespace: homarr
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: homarr-data-pv
+  storageClassName: nfs
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: homarr-icons-pv
+  namespace: homarr
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: nfs
+  nfs:
+    path: /exports/homarr
+    server: 10.7.0.69
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: homarr-icons-pvc
+  namespace: homarr
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: homarr-icons-pv
   storageClassName: nfs
