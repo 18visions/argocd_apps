@@ -32,7 +32,7 @@ spec:
           claimName: homarr-pvc
       - name: homarr-configs
         persistentVolumeClaim:
-          claimName: homarr-cfig-pvc
+          claimName: homarr-pvc
       - name: homarr-icons
         persistentVolumeClaim:
           claimName: homarr-pvc
