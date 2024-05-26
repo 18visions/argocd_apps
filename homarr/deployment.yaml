@@ -28,5 +28,7 @@ spec:
           mountPath: /data
       volumes:
       - name: homarr-data
+      - name: homarr-configs
+      - name: homarr-icons
         persistentVolumeClaim:
           claimName: homarr-pvc
