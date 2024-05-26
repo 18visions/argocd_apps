@@ -21,7 +21,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: homarr-data
-          mountPath: /data/configs
+          mountPath: /app/data/configs
       volumes:
       - name: homarr-data
         persistentVolumeClaim:
