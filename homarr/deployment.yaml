@@ -20,8 +20,12 @@ spec:
         - containerPort: 7575
           protocol: TCP
         volumeMounts:
-        - name: homarr-data
+        - name: homarr-configs
           mountPath: /app/data/configs
+        - name: homarr-icons
+          mountPath: /app/data/icons
+        - name: homarr-data
+          mountPath: /data
       volumes:
       - name: homarr-data
         persistentVolumeClaim:
